@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TSD 05</string>
+    <string name="voice_recognition_no">Распознавание речи не поддерживается на этом устройстве.</string>
+    <string name="voice_recognition_prompt">Произнесите команду..</string>
+    <string name="tts_failed">Не установлен TTS engine</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_api_urovo">Module Title</string>
+    <string name="version">версия: %s</string>
+</resources>

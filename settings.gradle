@@ -1,0 +1,8 @@
+include ':api_slim'
+include ':api_orovo2'
+include ':api_tsd'
+include ':api_lite'
+include ':api_droid'
+include ':core'
+include ':app'
+rootProject.name = "qr code"

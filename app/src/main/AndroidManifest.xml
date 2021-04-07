@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.aldredo.qrcode">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <permission
+        android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <permission
+        android:name="com.example.trackmyexercise.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.trackmyexercise.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera2" />
+    <uses-feature android:name="android.hardware.Camera" />
+
+    <application
+        android:name=".application.App"
+        android:allowBackup="true"
+        android:directBootAware="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".presentation.activity.WarehouseActivity"></activity>
+        <activity android:name=".presentation.activity.MoveToCellActivity" />
+        <activity
+            android:name=".presentation.activity.CaptureAct"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".presentation.activity.MenuActivity" />
+        <activity android:name=".presentation.activity.AuthorizationViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".utils.PushReceiver"
+            android:exported="false">
+            <intent-filter>
+
+                <!-- Do not modify this -->
+                <action android:name="pushy.me" />
+            </intent-filter>
+        </receiver> <!-- Pushy Update Receiver -->
+        <!-- Do not modify - internal BroadcastReceiver that restarts the listener service -->
+        <receiver
+            android:name="me.pushy.sdk.receivers.PushyUpdateReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver> <!-- Pushy Boot Receiver -->
+        <!-- Do not modify - internal BroadcastReceiver that restarts the listener service -->
+        <receiver
+            android:name="me.pushy.sdk.receivers.PushyBootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver> <!-- Pushy Socket Service -->
+        <!-- Do not modify - internal service -->
+        <service
+            android:name="me.pushy.sdk.services.PushySocketService"
+            android:stopWithTask="false" /> <!-- Pushy Job Service (added in Pushy SDK 1.0.35) -->
+        <!-- Do not modify - internal service -->
+        <service
+            android:name="me.pushy.sdk.services.PushyJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:stopWithTask="false" /> <!-- End Pushy Declarations -->
+        <activity android:name=".presentation.activity.TaskWindow" />
+    </application>
+
+</manifest>
